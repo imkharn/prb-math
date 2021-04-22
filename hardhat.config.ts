@@ -1,6 +1,6 @@
 import "@nomiclabs/hardhat-waffle";
 import "@typechain/hardhat";
-import "hardhat-contract-sizer";
+import "hardhat-docgen";
 import "hardhat-gas-reporter";
 import "solidity-coverage";
 
@@ -55,6 +55,11 @@ function createTestnetConfig(network: keyof typeof chainIds): NetworkUserConfig 
 
 const config: HardhatUserConfig = {
   defaultNetwork: "hardhat",
+  docgen: {
+    path: "./docs",
+    clear: true,
+    runOnCompile: true,
+  },
   gasReporter: {
     currency: "USD",
     enabled: process.env.REPORT_GAS ? true : false,
